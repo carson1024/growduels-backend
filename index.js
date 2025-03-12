@@ -6,7 +6,7 @@ const cors = require('cors');
 const socket = require('socket.io');
 
 // Load application config
-require('dotenv').config({ path: './config/config.env' });
+require('dotenv').config();
 
 // Init express app & create http server
 const app = express();
@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(hpp());
 app.use(cors({
-    origin: [...process.env.SERVER_FRONTEND_URL.split(','), 'http://162.19.95.50'],
+    origin: [...process.env.SERVER_FRONTEND_URL.split(',')],
     credentials: true
 }));
 
